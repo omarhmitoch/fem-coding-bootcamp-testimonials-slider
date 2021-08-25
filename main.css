@@ -1,0 +1,264 @@
+/* presets */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.35s;
+  font-family: "Inter", sans-serif;
+}
+input,
+textarea,
+button,
+select,
+img,
+svg,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img,
+svg {
+  outline: 0;
+  user-select: none;
+}
+a,
+a:active {
+  text-decoration: none;
+  cursor: pointer;
+}
+li {
+  cursor: pointer;
+  list-style: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  font-size: 32px;
+}
+/* css custom properties / variables */
+:root {
+  --dark-blue: hsl(240, 38%, 20%);
+  --grayish-blue: hsl(240, 18%, 77%);
+}
+/* main style*/
+main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.wrapper {
+  width: 75%;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.curveBg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+}
+.bgPatter {
+  position: absolute;
+  right: 8%;
+  width: 45%;
+}
+.text-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 19rem;
+}
+.text-container::before {
+  content: "";
+  position: absolute;
+  left: 18%;
+  top: 0;
+  background: url("./images/pattern-quotes.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 3rem;
+  transform: translateY(-68%);
+  z-index: -4;
+}
+.image-container {
+  position: absolute;
+  right: 0;
+  width: 500px;
+  height: 480px;
+  z-index: 5;
+  border-radius: 3px;
+  box-shadow: 10px 20px 40px -0px rgba(31, 31, 70, 0.2);
+  transition: 1s;
+  display: flex;
+  align-items: flex-end;
+}
+
+.image-container.first {
+  background: url("./images/image-tanya.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.image-container.second {
+  background: url("./images/image-john.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.text-container p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #322f4a;
+  line-height: 1.3rem;
+  max-width: 100%;
+  word-wrap: break-word;
+  z-index: 10;
+  display: none;
+  margin-bottom: 1rem;
+}
+.text-container p.active {
+  display: block;
+}
+.text-container p.active span {
+  animation: ro 1s infinite;
+}
+
+.user-info span h1 {
+  font-size: 0.6rem;
+  color: var(--dark-blue);
+}
+.ml10 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+.ml6 {
+  font-size: 0.6rem;
+}
+.ml6.active {
+  display: none;
+}
+.ml6 .letters2 {
+  color: var(--grayish-blue);
+}
+.ml6 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+.slider-btn {
+  transform: translateY(50%);
+  position: relative;
+  left: 1.5rem;
+}
+.slider-btn a {
+  position: relative;
+  display: flex;
+  border-radius: 100px;
+  background-color: #fff;
+  box-shadow: 0 1px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.slider-btn a span {
+  height: 1.4rem;
+  width: 1.5rem;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px 0 0 100px;
+}
+.slider-btn a span:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.slider-btn a span img {
+  width: 0.3rem;
+  position: absolute;
+}
+.slider-btn a span:nth-child(2) {
+  transform: rotate(180deg);
+}
+
+@keyframes ro {
+  100% {
+    transform: translateY(-200%);
+  }
+}
+
+.ml6 {
+  position: relative;
+}
+
+.ml6 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+/* media queries */
+@media (max-width: 1024px) {
+  .wrapper {
+    width: 95%;
+    flex-direction: column-reverse;
+    gap: 5rem 0;
+  }
+  .curveBg {
+    width: 70%;
+  }
+  .bgPatter {
+    top: 10%;
+    width: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .image-container {
+    position: relative;
+    width: 540px;
+    height: 540px;
+  }
+  .text-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .ml6 {
+    font-size: 1rem;
+  }
+  .ml6 .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem 0;
+  }
+  .ml6 .text-wrapper .letters2 {
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 768px) {
+  .bgPatter {
+    top: 7%;
+    width: 95%;
+  }
+  .text-container {
+    max-width: 90%;
+  }
+  .image-container {
+    max-width: 90%;
+  }
+}
